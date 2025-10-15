@@ -123,9 +123,9 @@ Os gráficos a seguir foram gerados com base nos dados coletados para facilitar 
 
 Os resultados demonstram claramente as características teóricas de cada algoritmo.
 
-* **Sondagem Linear** apresentou o maior número de colisões em todos os cenários, especialmente com fatores de carga elevados. Isso se deve ao fenômeno de **agrupamento primário (primary clustering)**, onde as colisões formam longas sequências de registros ocupados, degradando drasticamente o desempenho tanto da inserção quanto da busca. Embora seu tempo de inserção tenha sido competitivo (devido à simplicidade da operação de escrita em array), o tempo de busca foi o pior, confirmando a ineficiência do método sob alta densidade.
+* **Sondagem Linear** foi a que mais se complicou. Como ela sempre procura o próximo espaço vazio andando de um em um, acabou criando blocos enormes de dados, todos amontoados. É o que chamam de "agrupamento primário". Por causa dessa bagunça, ela teve o maior número de colisões de longe.
 
-* **Encadeamento Separado** se destacou pelo baixo número de colisões e pelo **melhor tempo de busca** na maioria dos casos. No entanto, seu tempo de inserção foi consistentemente o mais lento. Isso é explicado pelo *overhead* de alocação de memória dinâmica para cada nó (`new No(...)`) da lista encadeada, uma operação mais custosa do que a simples atribuição em um vetor.
+* **Encadeamento Separado** se destacou pelo baixo número de colisões e pelo **melhor tempo de busca** na maioria dos casos. No entanto, seu tempo de inserção foi o mais lento (dependendo da quantidade de dados tratados tambem). Isso é explicado pelo *overhead* de alocação de memória dinâmica para cada nó (`new No(...)`) da lista encadeada, uma operação mais complexa do que a simples atribuição em um vetor.
 
 * **Sondagem Quadrática** provou ser a abordagem mais **equilibrada**. Ao evitar o agrupamento primário, o número de colisões foi significativamente menor que o da Sondagem Linear. Seus tempos de inserção e busca ficaram entre os das outras duas técnicas, representando um excelente compromisso entre velocidade e controle de colisões, sendo uma escolha robusta para cenários de uso geral.
 
