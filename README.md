@@ -36,7 +36,7 @@ Este trabalho foi desenvolvido para o curso de Resolução Estruturada de Proble
 
 ## 1. Introdução
 
-Este trabalho apresenta a implementação e a análise de desempenho de três diferentes técnicas de tratamento de colisão em Tabelas Hash, uma estrutura de dados fundamental em ciência da computação. O objetivo principal é comparar, de forma prática e empírica, a eficiência de cada abordagem em termos de tempo de inserção, tempo de busca e número de colisões geradas.
+Com uma pesquisa completa sobre tabelas hash, entendi que o processo chegou pra acrescentar velocidade e eficiência as buscas de valores, porém, como nem tudo se resumem a maravilhas, as tabelas hash sofrem com um aspecto muito importante: as colisões. Nesse projeto abordamos algumas tecnicas diferentes da tabela hash e quais suas diferenças, trazendo resultados simulados no java, como: Diferença de velocidade, resultado desempenho(velocidade x resultado). 
 
 As técnicas implementadas foram: **Encadeamento Separado**, **Sondagem Linear** e **Sondagem Quadrática**. Os algoritmos foram desenvolvidos em Java, seguindo as restrições propostas, e testados com três grandes conjuntos de dados (100 mil, 1 milhão e 10 milhões de registros) para avaliar seu comportamento e escalabilidade sob diferentes condições de carga.
 
@@ -56,7 +56,7 @@ Todos os testes foram executados em um único ambiente para garantir a consistê
 
 ### 2.2 Geração dos Conjuntos de Dados
 
-Os dados utilizados nos testes foram gerados aleatoriamente pela classe `GeradorDados.java`. Para garantir a validade e a reprodutibilidade dos experimentos, uma `SEED` (semente) fixa foi utilizada no gerador de números aleatórios. Isso assegura que os mesmos conjuntos de dados fossem usados para testar todas as três implementações de Tabela Hash.
+Os dados utilizados nos testes foram gerados aleatoriamente pela classe `GeradorDados.java`. Para garantir a validade e a reprodutibilidade dos experimentos, uma `SEED` (semente) fixa foi utilizada no gerador de números aleatórios. Assegurando     que os mesmos conjuntos de dados fossem usados para testar todas as três implementações de Tabela Hash.
 
 * **Conjunto de Dados 1 (N1):** 100.000 registros
 * **Conjunto de Dados 2 (N2):** 1.000.000 de registros
@@ -76,14 +76,14 @@ Foram implementadas três técnicas distintas para tratamento de colisão, cumpr
 
 ### 2.4 Estrutura dos Testes e Escolha dos Tamanhos de Tabela
 
-Para a escolha dos tamanhos das tabelas (M), em vez de uma variação fixa de x10, optou-se por uma abordagem baseada no **fator de carga (α = N/M)**, que é a métrica fundamental que rege o desempenho de uma tabela hash. Esta decisão permite uma análise mais controlada e academicamente relevante sobre como a densidade da tabela afeta o desempenho.
+Para a escolha dos tamanhos das tabelas (M), em vez de uma variação fixa de x10, por se tratar de uma simulação, preferi trazer coisas que acontecem na pratica, então implementei o **fator de carga (α = N/M)** (que li no livro Algoritmos: Teoria e Prática), que é a métrica fundamental que rege o desempenho de uma tabela hash. Com isso temos uma análise mais controlada e realista sobre como a densidade da tabela afeta o desempenho (fora que conseguimos ver resultados de colisões melhores).
 
-Foram testados três fatores de carga para cada conjunto de dados:
+Testei três fatores de carga para cada conjunto de dados:
 * **α ≈ 0.5:** Tabela com aproximadamente 50% de ocupação.
 * **α ≈ 0.75:** Tabela com aproximadamente 75% de ocupação.
-* **α ≈ 0.9:** Tabela com aproximadamente 90% de ocupação, para simular um cenário de alto estresse.
+* **α ≈ 0.9:** Tabela com aproximadamente 90% de ocupação, para simular um cenário de alto fluxo de dados.
 
-Para cada `α` desejado, o tamanho da tabela `M` foi calculado como `proximoPrimo(N / α)` para garantir que o tamanho do vetor fosse sempre um número primo, uma prática recomendada para melhorar a distribuição das chaves.
+Para cada `α` desejado, o tamanho da tabela `M` foi calculado como `proximoPrimo(N / α)` para garantir que o tamanho do vetor fosse sempre um número primo, coisa que tambem li em dois livro (The Art of Computer Programming, Volume 3), pra melhorar a distribuição das chave.
 
 ## 3. Resultados Obtidos
 
