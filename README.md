@@ -146,7 +146,7 @@ Com base nos dados coletados e na análise realizada, concluímos que não exist
 
 Este trabalho permitiu verificar na prática a teoria fundamental das estruturas de dados, demonstrando como as escolhas de algoritmos impactam diretamente o desempenho de um sistema computacional.
 
-## 6. Análise de Uso de Memória (Bônus)
+## 6. Análise de Uso de Memória
 
 Para um conjunto de **N = 10.000.000** de registros e um fator de carga **α ≈ 0.9**, temos uma tabela de M ≈ 11.111.111 posições.
 
@@ -164,5 +164,6 @@ A análise indica que para fatores de carga muito baixos, o Encadeamento Separad
 
 1.  CORMEN, T. H.; et al. *Algoritmos: Teoria e Prática*. 3ª Edição. Editora Campus, 2012.
 2.  SEDGEWICK, R.; WAYNE, K. *Algorithms*. 4th Edition. Addison-Wesley, 2011.
-3.  GeeksforGeeks. (2023). *Hashing | Set 3 (Open Addressing)*. Acessado em 15 de outubro de 2025.
-4.  VisuAlgo. (2021). *Hashing Visualization*. Acessado em 15 de outubro de 2025.
+3.  GeeksforGeeks. (2023). *Hashing | Set 3 (Open Addressing)*. 
+4.  VisuAlgo. (2021). *Hashing Visualization*.
+5.  Donald E. Knuth *The Art of Computer Programming, Volume 3: Sorting and Searching*.
