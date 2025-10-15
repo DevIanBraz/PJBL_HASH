@@ -29,7 +29,7 @@ Este trabalho foi desenvolvido para o curso de Resolução Estruturada de Proble
     1.  [Análise de Desempenho (Tempo e Colisões)](#41-análise-de-desempenho-tempo-e-colisões)
     2.  [Análise de Listas e Gaps](#42-análise-de-listas-e-gaps)
 5.  [Conclusão](#5-conclusão)
-6.  [Análise de Uso de Memória (Bônus)](#6-análise-de-uso-de-memória-bônus)
+6.  [Análise de Uso de Memória (Bônus)](#6-análise-de-uso-de-memória)
 7.  [Referências](#7-referências)
 
 ---
