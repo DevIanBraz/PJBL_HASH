@@ -16,10 +16,10 @@ Este trabalho foi desenvolvido para o curso de Resolução Estruturada de Proble
 
 1.  [Introdução](#1-introdução)
 2.  [Metodologia](#2-metodologia)
-    1.  [Ambiente de Testes](#21-ambiente-de-testes)
-    2.  [Geração dos Conjuntos de Dados](#22-geração-dos-conjuntos-de-dados)
-    3.  [Funções de Hash Implementadas](#23-funções-de-hash-implementadas)
-    4.  [Estrutura dos Testes e Escolha dos Tamanhos de Tabela](#24-estrutura-dos-testes-e-escolha-dos-tamanhos-de-tabela)
+    1.  [Geração dos Conjuntos de Dados](#21-geração-dos-conjuntos-de-dados)
+    2.  [Funções de Hash Implementadas](#22-funções-de-hash-implementadas)
+    3.  [Estrutura dos Testes e Escolha dos Tamanhos de Tabela](#23-estrutura-dos-testes-e-escolha-dos-tamanhos-de-tabela)
+    
 3.  [Resultados Obtidos](#3-resultados-obtidos)
     1.  [Resultados para N = 100.000](#31-resultados-para-n--100000-registros)
     2.  [Resultados para N = 1.000.000](#32-resultados-para-n--1000000-registros)
@@ -44,17 +44,7 @@ As técnicas implementadas foram: **Encadeamento Separado**, **Sondagem Linear**
 
 Nesta seção, descrevemos as ferramentas, os métodos e as decisões de projeto utilizadas para a condução dos experimentos.
 
-### 2.1 Ambiente de Testes
-
-Todos os testes foram executados em um único ambiente para garantir a consistência dos resultados.
-
-* **Processador:** `[Ex: Intel Core i7-9750H @ 2.60GHz]`
-* **Memória RAM:** `[Ex: 16 GB DDR4]`
-* **Sistema Operacional:** `[Ex: Windows 11 Pro 64-bit]`
-* **Java Development Kit (JDK):** `[Ex: OpenJDK 17.0.5]`
-* **IDE:** `[Ex: IntelliJ IDEA 2024.2]`
-
-### 2.2 Geração dos Conjuntos de Dados
+### 2.1 Geração dos Conjuntos de Dados
 
 Os dados utilizados nos testes foram gerados aleatoriamente pela classe `GeradorDados.java`. Para garantir a validade e a reprodutibilidade dos experimentos, uma `SEED` (semente) fixa foi utilizada no gerador de números aleatórios. Assegurando     que os mesmos conjuntos de dados fossem usados para testar todas as três implementações de Tabela Hash.
 
@@ -64,7 +54,7 @@ Os dados utilizados nos testes foram gerados aleatoriamente pela classe `Gerador
 
 Cada registro é um objeto da classe `Registro`, contendo um código numérico de até 9 dígitos.
 
-### 2.3 Funções de Hash Implementadas
+### 2.2 Funções de Hash Implementadas
 
 Foram implementadas três técnicas distintas para tratamento de colisão, cumprindo os requisitos do trabalho.
 
@@ -74,7 +64,7 @@ Foram implementadas três técnicas distintas para tratamento de colisão, cumpr
 
 3.  **Sondagem Quadrática (Rehashing):** Uma melhoria da Sondagem Linear, onde a busca por uma posição livre é feita em saltos quadráticos (`indice + 1²`, `indice + 2²`, ...), com o objetivo de mitigar o problema de agrupamento primário.
 
-### 2.4 Estrutura dos Testes e Escolha dos Tamanhos de Tabela
+### 2.3 Estrutura dos Testes e Escolha dos Tamanhos de Tabela
 
 Para a escolha dos tamanhos das tabelas (M), em vez de uma variação fixa de x10, por se tratar de uma simulação, preferi trazer coisas que acontecem na pratica, então implementei o **fator de carga (α = N/M)** (que li no livro Algoritmos: Teoria e Prática), que é a métrica fundamental que rege o desempenho de uma tabela hash. Com isso temos uma análise mais controlada e realista sobre como a densidade da tabela afeta o desempenho (fora que conseguimos ver resultados de colisões melhores).
 
