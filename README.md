@@ -29,8 +29,7 @@ Este trabalho foi desenvolvido para o curso de Resolução Estruturada de Proble
     1.  [Análise de Desempenho (Tempo e Colisões)](#41-análise-de-desempenho-tempo-e-colisões)
     2.  [Análise de Listas e Gaps](#42-análise-de-listas-e-gaps)
 5.  [Conclusão](#5-conclusão)
-6.  [Análise de Uso de Memória](#6-análise-de-uso-de-memória)
-7.  [Referências](#7-referências)
+6.  [Referências](#6-referências)
 
 ---
 
@@ -95,18 +94,6 @@ A seguir, são apresentadas as tabelas com os dados coletados para cada cenário
 <img width="1095" height="391" alt="image" src="https://github.com/user-attachments/assets/c41bcc77-c127-4d0a-8ba7-dbfacd013a45" />
 <img width="1099" height="393" alt="image" src="https://github.com/user-attachments/assets/33818059-ff14-41d0-a5c2-d43640d1fd5f" />
 
-### 3.4 Gráficos Comparativos
-
-Os gráficos a seguir foram gerados com base nos dados coletados para facilitar a visualização e comparação do desempenho das técnicas.
-
-**Gráfico 1: Total de Colisões vs. Fator de Carga (para N = 1.000.000)**
-![Gráfico de Colisões](caminho/para/seu/grafico_colisoes.png)
-
-**Gráfico 2: Tempo de Inserção (ms) vs. Tamanho do Conjunto de Dados (para α ≈ 0.75)**
-![Gráfico de Tempo de Inserção](caminho/para/seu/grafico_tempo_insercao.png)
-
-**Gráfico 3: Tempo de Busca (ms) vs. Fator de Carga (para N = 1.000.000)**
-![Gráfico de Tempo de Busca](caminho/para/seu/grafico_tempo_busca.png)
 
 ## 4. Análise dos Resultados
 
@@ -114,44 +101,25 @@ Os gráficos a seguir foram gerados com base nos dados coletados para facilitar 
 
 Os resultados demonstram claramente as características teóricas de cada algoritmo.
 
-* **Sondagem Linear** foi a que mais se complicou. Como ela sempre procura o próximo espaço vazio andando de um em um, acabou criando blocos enormes de dados, todos amontoados. É o que chamam de "agrupamento primário". Por causa dessa bagunça, ela teve o maior número de colisões de longe.
+* **Sondagem Linear** Como ela sempre procura o próximo espaço vazio andando de um em um, acabou criando blocos enormes de dados, todos amontoados. É o que chamam de "agrupamento primário", ela teve o maior número de colisões de longe.
 
-* **Encadeamento Separado** se destacou pelo baixo número de colisões e pelo **melhor tempo de busca** na maioria dos casos. No entanto, seu tempo de inserção foi o mais lento (dependendo da quantidade de dados tratados tambem). Isso é explicado pelo *overhead* de alocação de memória dinâmica para cada nó (`new No(...)`) da lista encadeada, uma operação mais complexa do que a simples atribuição em um vetor.
+* **Encadeamento Separado** Se destacou pelo baixo número de colisões e pelo **melhor tempo de busca** na maioria dos casos. No entanto, seu tempo de inserção foi o mais lento (dependendo da quantidade de dados tratados tambem). Isso é explicado pelo *overhead* de alocação de memória dinâmica para cada nó (`new No(...)`) da lista encadeada, uma operação mais complexa do que a simples atribuição em um vetor.
 
-* **Sondagem Quadrática** provou ser a abordagem mais **equilibrada**. Ao evitar o agrupamento primário, o número de colisões foi significativamente menor que o da Sondagem Linear. Seus tempos de inserção e busca ficaram entre os das outras duas técnicas, representando um excelente compromisso entre velocidade e controle de colisões, sendo uma escolha robusta para cenários de uso geral.
+* **Sondagem Quadrática** Provou ser a abordagem mais **equilibrada**. Ao evitar o agrupamento primário, o número de colisões foi significativamente menor que o da Sondagem Linear. Seus tempos de inserção e busca ficaram entre os das outras duas técnicas, representando um excelente resultado entre velocidade e controle de colisões, sendo uma escolha mais recomendada para cenários de uso geral.
 
-### 4.2 Análise de Listas e Gaps
-
-A análise das listas e dos gaps reforça as conclusões acima:
-
-* As **listas do Encadeamento Separado** se mantiveram relativamente curtas, mesmo nos cenários de maior carga, o que explica seu excelente tempo de busca.
-* A análise de **gaps** evidenciou o problema da Sondagem Linear, que apresentou gaps médios baixos e um gap máximo muito elevado, indicando a formação de grandes blocos de dados. Em contraste, a Sondagem Quadrática produziu uma distribuição mais saudável de gaps, com valores mais consistentes.
 
 ## 5. Conclusão
 
-Com base nos dados coletados e na análise realizada, concluímos que não existe uma única técnica "melhor" para todas as situações; a escolha depende dos requisitos da aplicação.
+Com base nos dados coletados e na análise realizada, entendesse que não existe uma única técnica "melhor" para todas as situações; a escolha depende dos requisitos da aplicação.
 
-* Para cenários onde a **velocidade de busca é a prioridade máxima** e o custo de memória não é um fator crítico, o **Encadeamento Separado** é a escolha superior.
-* A **Sondagem Linear**, apesar de sua simplicidade, mostrou-se ineficiente e não é recomendada para aplicações que utilizem fatores de carga moderados a altos.
-* A **Sondagem Quadrática** emergiu como a **solução mais robusta e equilibrada**, oferecendo um ótimo desempenho tanto em inserções quanto em buscas, e controlando colisões de forma muito mais eficaz que a Sondagem Linear. Para uma aplicação de propósito geral, ela seria a escolha mais recomendada.
+* Para cenários onde a **velocidade de busca é a prioridade máxima** e o custo de memória não é um fator essêncial, o **Encadeamento Separado** é a escolha superior.
+* A **Sondagem Linear**, apesar de sua simplicidade, mostrou ineficiente e não é recomendada para aplicações que utilizem fatores de carga moderados a altos.
+* A **Sondagem Quadrática** foi feita como a **equilibrada**, oferecendo um ótimo desempenho tanto em inserções quanto em buscas, e controlando colisões de forma muito mais eficaz que a Sondagem Linear. Para uma aplicação de propósito geral, ela seria a escolha mais recomendada.
 
 Este trabalho permitiu verificar na prática a teoria fundamental das estruturas de dados, demonstrando como as escolhas de algoritmos impactam diretamente o desempenho de um sistema computacional.
 
-## 6. Análise de Uso de Memória
 
-Para um conjunto de **N = 10.000.000** de registros e um fator de carga **α ≈ 0.9**, temos uma tabela de M ≈ 11.111.111 posições.
-
-* **Encadeamento Separado:**
-    * Uso de memória ≈ `(M * custo_ponteiro) + (N * (custo_registro + custo_ponteiro_extra))`
-    * O overhead principal está no ponteiro extra (`proximo`) para cada um dos N elementos armazenados.
-
-* **Sondagem (Linear e Quadrática):**
-    * Uso de memória ≈ `M * custo_ponteiro_registro`
-    * O overhead está nas posições não utilizadas do vetor (`M - N`), que para α = 0.9, é de aproximadamente 10% do tamanho total da tabela.
-
-A análise indica que para fatores de carga muito baixos, o Encadeamento Separado pode ser mais eficiente em memória, enquanto para fatores de carga altos, as técnicas de Sondagem podem ter menor overhead total.
-
-## 7. Referências
+## 6. Referências
 
 1.  CORMEN, T. H.; et al. *Algoritmos: Teoria e Prática*. 3ª Edição. Editora Campus, 2012.
 2.  SEDGEWICK, R.; WAYNE, K. *Algorithms*. 4th Edition. Addison-Wesley, 2011.
