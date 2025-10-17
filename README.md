@@ -78,20 +78,22 @@ A seguir, são apresentadas as tabelas com os dados coletados para cada cenário
 
 ### 3.1 Resultados para N = 100.000 Registros
 
-**Exemplo de Tabela:**
-| Fator de Carga | Técnica | Colisões | Tempo Inserção(ms) | Tempo Busca(ms) | Análise Específica |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **α ≈ 0.5** | Encadeamento Separado | 12.345 | 10 | 5 | 3 Maiores Listas: 5, 4, 4 |
-| | Sondagem Linear | 25.678 | 6 | 7 | Gap Mín/Méd/Máx: 0 / 1.50 / 20 |
-| | Sondagem Quadrática | 18.901 | 8 | 6 | Gap Mín/Méd/Máx: 0 / 1.20 / 15 |
-| **α ≈ 0.75** | ... | ... | ... | ... | ... |
-| **α ≈ 0.9** | ... | ... | ... | ... | ... |
 <img width="1129" height="517" alt="image" src="https://github.com/user-attachments/assets/5e893239-f683-47f2-9da7-0b897802d66d" />
-
+<img width="1105" height="386" alt="image" src="https://github.com/user-attachments/assets/8e758f21-a7bc-4731-b874-958562e38312" />
+<img width="1100" height="393" alt="image" src="https://github.com/user-attachments/assets/303570fc-3733-4a3b-8d7d-59f93c15d5cc" />
 
 ### 3.2 Resultados para N = 1.000.000 Registros
 
+<img width="1122" height="531" alt="image" src="https://github.com/user-attachments/assets/b8a96e25-90de-4bbf-9e28-3b40ca44072d" />
+<img width="1097" height="393" alt="image" src="https://github.com/user-attachments/assets/f14e4147-3f1d-4eed-8f97-3b70a2d6e7a4" />
+<img width="1100" height="386" alt="image" src="https://github.com/user-attachments/assets/23e4c341-0dcb-4fa0-a207-bbc0dedadce9" />
+
+
 ### 3.3 Resultados para N = 10.000.000 Registros
+
+<img width="1128" height="528" alt="image" src="https://github.com/user-attachments/assets/d56d2fa7-12fd-46b7-a254-cee639c0f807" />
+<img width="1095" height="391" alt="image" src="https://github.com/user-attachments/assets/c41bcc77-c127-4d0a-8ba7-dbfacd013a45" />
+<img width="1099" height="393" alt="image" src="https://github.com/user-attachments/assets/33818059-ff14-41d0-a5c2-d43640d1fd5f" />
 
 ### 3.4 Gráficos Comparativos
 
