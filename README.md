@@ -41,8 +41,7 @@ Com uma pesquisa completa sobre tabelas hash, entendi que o processo chegou pra 
 As técnicas implementadas foram: **Encadeamento Separado**, **Sondagem Linear** e **Sondagem Quadrática**. Os algoritmos foram desenvolvidos em Java, seguindo as restrições propostas, e testados com três grandes conjuntos de dados (100 mil, 1 milhão e 10 milhões de registros) para avaliar seu comportamento e escalabilidade sob diferentes condições de carga.
 
 ## 2. Metodologia
-
-Nesta seção, descrevemos as ferramentas, os métodos e as decisões de projeto utilizadas para a condução dos experimentos.
+Fiz um pequeno ajuste (dentro do possivel) pra termos um resultado mais condizente com um processo real.
 
 ### 2.1 Geração dos Conjuntos de Dados
 
@@ -56,19 +55,17 @@ Cada registro é um objeto da classe `Registro`, contendo um código numérico d
 
 ### 2.2 Funções de Hash Implementadas
 
-Foram implementadas três técnicas distintas para tratamento de colisão, cumprindo os requisitos do trabalho.
+1.  **Encadeamento Separado:** Isso armazenando os registros que colidem em uma lista ligada (ou encadeada) no índice da tabela. A função de hash primária utilizada foi o **Método da Divisão** (`chave % tamanhoTabela`).
 
-1.  **Encadeamento Separado:** Uma técnica de encadeamento que resolve colisões armazenando os registros que colidem em uma lista ligada (ou encadeada) no índice da tabela. A função de hash primária utilizada foi o **Método da Divisão** (`chave % tamanhoTabela`).
-
-2.  **Sondagem Linear (Rehashing):** Uma técnica de endereçamento aberto onde, em caso de colisão, a próxima posição livre no vetor é procurada sequencialmente (`indice + 1`, `indice + 2`, ...).
+2.  **Sondagem Linear (Rehashing):** Em caso de colisão, a próxima posição livre no vetor é procurada sequencialmente (`indice + 1`, `indice + 2`, ...).
 
 3.  **Sondagem Quadrática (Rehashing):** Uma melhoria da Sondagem Linear, onde a busca por uma posição livre é feita em saltos quadráticos (`indice + 1²`, `indice + 2²`, ...), com o objetivo de mitigar o problema de agrupamento primário.
 
 ### 2.3 Estrutura dos Testes e Escolha dos Tamanhos de Tabela
 
-Para a escolha dos tamanhos das tabelas (M), em vez de uma variação fixa de x10, por se tratar de uma simulação, preferi trazer coisas que acontecem na pratica, então implementei o **fator de carga (α = N/M)** (que li no livro Algoritmos: Teoria e Prática), que é a métrica fundamental que rege o desempenho de uma tabela hash. Com isso temos uma análise mais controlada e realista sobre como a densidade da tabela afeta o desempenho (fora que conseguimos ver resultados de colisões melhores).
+Para a escolha dos tamanhos das tabelas (M), em vez de uma variação fixa de x10, por se tratar de uma simulação, preferi trazer coisas que acontecem na pratica, então implementei o **fator de carga (α = N/M)** (li no livro Algoritmos: Teoria e Prática), que é a métrica fundamental que rege o desempenho de uma tabela hash. Com isso temos uma análise mais controlada e realista sobre como a densidade da tabela afeta o desempenho (fora que conseguimos ver resultados de colisões melhores).
 
-Testei três fatores de carga para cada conjunto de dados:
+Testei três fatores de carga para cada conjunto:
 * **α ≈ 0.5:** Tabela com aproximadamente 50% de ocupação.
 * **α ≈ 0.75:** Tabela com aproximadamente 75% de ocupação.
 * **α ≈ 0.9:** Tabela com aproximadamente 90% de ocupação, para simular um cenário de alto fluxo de dados.
@@ -89,6 +86,8 @@ A seguir, são apresentadas as tabelas com os dados coletados para cada cenário
 | | Sondagem Quadrática | 18.901 | 8 | 6 | Gap Mín/Méd/Máx: 0 / 1.20 / 15 |
 | **α ≈ 0.75** | ... | ... | ... | ... | ... |
 | **α ≈ 0.9** | ... | ... | ... | ... | ... |
+<img width="1129" height="517" alt="image" src="https://github.com/user-attachments/assets/5e893239-f683-47f2-9da7-0b897802d66d" />
+
 
 ### 3.2 Resultados para N = 1.000.000 Registros
 
